@@ -52,7 +52,7 @@ public class CardTest {
 
     @Test
 void test(){
-        Configuration.holdBrowserOpen = true;
+
         open("http://localhost:9999/");
         SelenideElement form = $(".form");
         form.$("[data-test-id=city] input").setValue("Москва");
