@@ -1,14 +1,11 @@
 package ru.netology;
 
-import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.SelenideElement;
-
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -26,7 +23,7 @@ import static com.codeborne.selenide.Selenide.open;
 public class CardTest {
 
     private WebDriver driver;
-    DateTimeFormatter formatter  = DateTimeFormatter.ofPattern("dd.MM.yyyy");
+    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.MM.yyyy");
 
 
     @BeforeAll
@@ -45,7 +42,7 @@ public class CardTest {
 
 
     @Test
-void test(){
+    void test() {
 
         open("http://localhost:9999/");
         SelenideElement form = $(".form");
@@ -60,9 +57,5 @@ void test(){
 
 
     }
-    @AfterEach
-    void tearDown() {
-        driver.quit();
-        driver = null;
-    }
+
 }
