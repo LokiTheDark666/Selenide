@@ -32,8 +32,6 @@ public class CardTest {
     @BeforeAll
     static void setUpAll() {
         WebDriverManager.chromedriver().setup();
-
-
     }
 
     @BeforeEach
@@ -44,11 +42,7 @@ public class CardTest {
         options.addArguments("--headless");
         driver = new ChromeDriver(options);
     }
-    @AfterEach
-    void tearDown() {
-        driver.quit();
-        driver = null;
-    }
+
 
     @Test
 void test(){
@@ -65,5 +59,10 @@ void test(){
         $("[data-test-id='notification']").shouldBe(exist, Duration.ofSeconds(15));
 
 
+    }
+    @AfterEach
+    void tearDown() {
+        driver.quit();
+        driver = null;
     }
 }
