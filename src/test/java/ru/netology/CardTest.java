@@ -23,7 +23,7 @@ import static com.codeborne.selenide.Selenide.open;
 public class CardTest {
 
     private WebDriver driver;
-    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.MM.yyyy");
+
 
 
     @BeforeAll
@@ -43,6 +43,7 @@ public class CardTest {
         void openUrl() {
             open("http://localhost:9999");
         }
+    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.MM.yyyy");
 
 
 
