@@ -39,12 +39,16 @@ public class CardTest {
         options.addArguments("--headless");
         driver = new ChromeDriver(options);
     }
+    @BeforeEach
+        void openUrl() {
+            open("http://localhost:9999");
+        }
+
 
 
     @Test
     void test() {
 
-        open("http://localhost:9999/");
         SelenideElement form = $(".form");
         form.$("[data-test-id=city] input").setValue("Москва");
         form.$("[data-test-id=date] input").sendKeys(Keys.chord(Keys.CONTROL, "a"), Keys.DELETE);
