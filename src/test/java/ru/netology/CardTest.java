@@ -22,18 +22,8 @@ import static com.codeborne.selenide.Selenide.open;
 
 public class CardTest {
 
-    private WebDriver driver;
 
 
-
-    @BeforeEach
-    void setUp() {
-        ChromeOptions options = new ChromeOptions();
-        options.addArguments("--disable-dev-shm-usage");
-        options.addArguments("--no-sandbox");
-        options.addArguments("--headless");
-        driver = new ChromeDriver(options);
-    }
     @BeforeEach
         void openUrl() {
             open("http://localhost:9999");
