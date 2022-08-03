@@ -26,11 +26,6 @@ public class CardTest {
 
 
 
-    @BeforeAll
-    static void setUpAll() {
-        WebDriverManager.chromedriver().setup();
-    }
-
     @BeforeEach
     void setUp() {
         ChromeOptions options = new ChromeOptions();
