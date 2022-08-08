@@ -1,5 +1,7 @@
 package ru.netology;
 
+import com.codeborne.selenide.Condition;
+import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.SelenideElement;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -14,6 +16,7 @@ import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 
 
+
 public class CardTest {
 
 
@@ -25,8 +28,11 @@ public class CardTest {
     DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.MM.yyyy");
 
 
+
     @Test
     void test() {
+
+        Configuration.holdBrowserOpen = true;
 
         SelenideElement form = $(".form");
         form.$("[data-test-id=city] input").setValue("Москва");
@@ -37,6 +43,8 @@ public class CardTest {
         form.$("[data-test-id=agreement]").click();
         form.$(".button").click();
         $("[data-test-id='notification']").shouldBe(exist, Duration.ofSeconds(15));
+        SelenideElement selenideElement = $(".notification__content")
+                .shouldHave(Condition.text(("Встреча успешно забронирована на ") + formatter.format(LocalDate.now().plusDays(3))), Duration.ofSeconds(15)).shouldBe(Condition.visible);
 
 
     }
