@@ -3,6 +3,7 @@ package ru.netology;
 import com.github.javafaker.Faker;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Locale;
 
 public class DataGenerator {
@@ -16,16 +17,15 @@ public class DataGenerator {
 
         public static Meeting generate() {
             Faker faker = new Faker(new Locale("ru"));
-            LocalDate futureDateFirstMeeting = LocalDate.now().plusDays(3);
-            LocalDate futureDateSecondMeeting = LocalDate.now().plusDays(5);
+            String futuredateFirstMeeting = LocalDate.now().plusDays(3).format(DateTimeFormatter.ofPattern("dd.MM.yyyy"));
+            String futuredateSecondMeeting = LocalDate.now().plusDays(5).format(DateTimeFormatter.ofPattern("dd.MM.yyyy"));
 
             return new Meeting(
                     faker.address().city(),
-                    futureDateFirstMeeting,
-                    faker.name().firstName(),
-                    faker.name().lastName(),
+                    futuredateFirstMeeting,
+                    faker.name().name(),
                     faker.phoneNumber().cellPhone(),
-                    futureDateSecondMeeting);
+                    futuredateSecondMeeting);
         }
     }
 }
