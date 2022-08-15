@@ -44,6 +44,10 @@ public class CardTest {
         form.$("[data-test-id=phone] input").setValue(meeting.getPhoneNumber());
         form.$("[data-test-id=agreement]").click();
         form.$(".button").click();
+        $("[data-test-id=success-notification]")
+                .shouldBe(Condition.text(("Встреча успешно запланирована на ")+
+                        (meeting.getFuturedateFirstMeeting())))
+                .shouldBe(Condition.visible);
 
 
 
@@ -52,7 +56,7 @@ public class CardTest {
         form.$(".button").click();
         $("[data-test-id=replan-notification]").shouldBe(exist);
         $$(".button").find(exactText("Перепланировать")).click();
-        $("class=[notification__content]")
+        $("[data-test-id=success-notification]")
                 .shouldBe(Condition.text(("Встреча успешно запланирована на ")+
                         (meeting.getFuturedateSecondMeeting())))
                 .shouldBe(Condition.visible);
